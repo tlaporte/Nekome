@@ -1,6 +1,7 @@
 package com.chesire.nekome
 
 import androidx.test.core.app.ActivityScenario
+import androidx.test.espresso.accessibility.AccessibilityChecks
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.chesire.nekome.database.dao.SeriesDao
 import com.chesire.nekome.database.dao.UserDao
@@ -46,6 +47,10 @@ abstract class UITest {
      * Defaults to `true`, override to force the user to be logged out.
      */
     open val startLoggedIn: Boolean = true
+
+    init {
+        AccessibilityChecks.enable().setRunChecksFromRootView(true)
+    }
 
     /**
      * Initial setup method.
